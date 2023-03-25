@@ -78,10 +78,23 @@ img{
     display: flex;
     align-items: center;
 }
+.current::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: var(--hover-fokus-color);
+}
+.item{
+    position: relative;
+}
 .header-nav .header-item:hover,
 .header-nav .header-item:focus{
     color: var(--hover-fokus-color);
-    }
+ }
     .header-list{
         display: flex;
         margin-left: 76px;
@@ -119,6 +132,10 @@ img{
         line-height: 1.5;
         letter-spacing: 0.02em;
         color: var(--primary-text-color);
+
+        transition-property: color;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         }
    
     /*--------------Main banner------------------*/
@@ -168,6 +185,10 @@ img{
         border: none;
         cursor: pointer;
         display: block;
+
+        transition-property: background-color;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
     /*----------------About company-----------------*/
     .company{
@@ -237,7 +258,6 @@ img{
         text-align: center;
         text-transform: capitalize;
         color: var(--accent-color);
-
     }
     .list-team{
         display: flex;
@@ -284,7 +304,11 @@ img{
         display: flex;
         align-items: center;
         justify-content: center;
-        fill: var(--light-color)
+        fill: var(--light-color);
+
+        transition-property: background-color;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
     .team-soc-link:hover{
         background-color: var(--hover-fokus-color);
@@ -318,9 +342,17 @@ img{
         height: 88px;
         border-radius: 4px;
         border: 1px solid #8E8F99;
-        fill: var(--light-gray)
-    }
+        fill: var(--light-gray);
 
+        transition-property: border-color;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .customer-icon{
+        transition-property: fill;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
     .box-icon:hover{
         border-color: var(--hover-fokus-color);
     }
@@ -378,6 +410,10 @@ img{
         border-radius: 4px;
         border: 1px solid var(--text-footer);
         cursor: pointer;
+
+        transition-property: background-color, border-color, color, box-shadow;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
     .link{
         text-decoration: none;
@@ -396,7 +432,28 @@ img{
     row-gap: 48px;
     column-gap: 24px;
 }
-.img-li .portf-list:hover{
+.img-li:hover .paragraph{
+    transform: translateY(0);
+}
+.picture{
+    position: relative; 
+    overflow: hidden;
+ }
+ .paragraph{
+     position: absolute;
+     top: 0;
+     left: 0;
+     height: 100%;
+     font-weight: 400;
+     font-size: 16px;
+     line-height: 1.5;
+     padding: 40px 32px 164px;
+     color: var(--light-color);
+     background-color: var(--title-text-color);
+     transform: translateY(100%);
+     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+ }
+.portf-typs .img-li:hover{
     box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 .portf-list{
@@ -406,6 +463,10 @@ img{
     line-height: 1.5;
     letter-spacing: 0.02em;
     color: var(--primary-text-color);
+
+    transition-property: box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }    
 .title-img{
         font-weight: 500;
@@ -481,10 +542,44 @@ img{
         border-radius: 50%;
         background-color: rgba(255, 255, 255, 0.1);
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        
+        transition-property: background-color;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
     .footer-soc-icon{
         fill: #F4F4FD;
     }
     .footer-soc-link:hover{
         background-color: #31D0AA;
+    }
+    .backdrop{
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(48, 48, 48, 0.5);
+    }
+    .modal{
+        width: 408px;
+        min-height: 576px;
+        background-color: var(--white);
+        border-radius: 4px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 24px;
+    }
+    .close-icom{
+        display: block;
+        margin-left: auto;
+        border: none;
+        background-color: var(--white);
+        cursor: pointer;
+    }
+    .is-hidden{
+        opacity: o;
+        visibility: hidden;
+        pointer-events: none;
     }
